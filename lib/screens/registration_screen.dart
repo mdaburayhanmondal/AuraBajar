@@ -151,13 +151,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: AuraLinkedText(
-                            text: "Forgot password?",
-                            alignment: TextAlign.end,
-                          ),
-                        ),
                         Row(
                           spacing: 4,
                           crossAxisAlignment: CrossAxisAlignment.center,
