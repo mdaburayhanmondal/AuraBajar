@@ -10,7 +10,11 @@ class AuraTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(fontSize: 20, color: AppColors.black),
+      style: TextStyle(
+        fontSize: 20,
+        color: AppColors.black,
+        fontWeight: FontWeight.bold,
+      ),
       textAlign: alignment ?? TextAlign.start,
       overflow: TextOverflow.ellipsis,
       maxLines: 1,
