@@ -4,6 +4,7 @@ import 'package:aurabajar/aura_widgets/aura_linked_text.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/aura_text_field.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
+import 'package:aurabajar/screens/registration_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -168,13 +170,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    // register link
+                    // registration screen
                     Row(
                       spacing: 4,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         AuraSubtitle(subtitle: "Don't have an account?"),
-                        AuraLinkedText(text: "Register"),
+                        AuraLinkedText(
+                          text: "Register",
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RegistrationScreen(),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
