@@ -36,7 +36,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // main column
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // greeting
                     Column(
@@ -49,6 +49,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 60),
                     // input fields
                     Column(
                       spacing: 12,
@@ -176,6 +177,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         AuraButton(onPressed: () {}, text: "Register"),
                       ],
                     ),
+                    SizedBox(height: 20),
                     // login screen
                     Row(
                       spacing: 4,
@@ -193,6 +195,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
