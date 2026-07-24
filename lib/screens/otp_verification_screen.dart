@@ -68,6 +68,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     AuraHeading(text: "Verify OTP"),
                     SizedBox(height: 20),
                     Column(
+                      spacing: 6,
                       children: [
                         AuraSubtitle(subtitle: "Enter the 6 digit OTP sent to"),
                         Text(
