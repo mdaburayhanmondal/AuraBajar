@@ -1,4 +1,4 @@
-import 'package:aurabajar/screens/home_screen.dart';
+import 'package:aurabajar/screens/login_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (!mounted) return;
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => LoginScreen()),
     );
   }
 
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Stack(
               alignment: AlignmentGeometry.center,
               children: [
-                Icon(Icons.shopping_bag, size: 200, color: AppColors.primary),
+                Icon(Icons.shopping_bag, size: 200, color: AppColors.secondary),
                 Positioned(
                   left: 0,
                   right: 0,
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       Text(
                         "Aura",
                         style: TextStyle(
-                          color: AppColors.success,
+                          color: AppColors.primary,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       Text(
                         "Bajar",
                         style: TextStyle(
-                          color: AppColors.secondary,
+                          color: AppColors.success,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
