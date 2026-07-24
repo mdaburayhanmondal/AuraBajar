@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AuraBajar',
-      theme: ThemeData(textTheme: GoogleFonts.manropeTextTheme()),
+      theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
       home: SplashScreen(),
     );
   }
