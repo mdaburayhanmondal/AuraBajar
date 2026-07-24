@@ -67,7 +67,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                             AuraTextField(
                               controller: fullNameController,
-                              prefixIcon: Icon(Icons.phone),
+                              prefixIcon: Icon(Icons.person),
                               hint: "Enter your full name",
                             ),
                           ],
@@ -105,7 +105,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                             AuraTextField(
                               controller: emailController,
-                              prefixIcon: Icon(Icons.phone),
+                              prefixIcon: Icon(Icons.email),
                               hint: "Enter your email address",
                             ),
                           ],
