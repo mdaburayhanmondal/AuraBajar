@@ -160,21 +160,14 @@ class _PasswordChangingScreenState extends State<PasswordChangingScreen> {
                       ),
                     ),
                     SizedBox(height: 30),
-                    AuraButton(
-                      onPressed: () => Navigator.push(
+                    AuraButton(onPressed: () {}, text: "Reset Password"),
+                    SizedBox(height: 30),
+                    AuraLinkedText(
+                      text: "Back to Login",
+                      onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => LoginScreen()),
                       ),
-                      text: "Back to Login",
-                    ),
-                    SizedBox(height: 30),
-                    Row(
-                      spacing: 4,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AuraSubtitle(subtitle: "Remember your password?"),
-                        AuraLinkedText(text: "Login", onTap: () => {}),
-                      ],
                     ),
                     SizedBox(height: 30),
                   ],
