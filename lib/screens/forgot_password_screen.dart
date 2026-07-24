@@ -4,6 +4,7 @@ import 'package:aurabajar/aura_widgets/aura_linked_text.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/aura_text_field.dart';
 import 'package:aurabajar/screens/login_screen.dart';
+import 'package:aurabajar/screens/otp_verification_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -168,7 +169,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ],
                     ),
                     SizedBox(height: 30),
-                    AuraButton(onPressed: () {}, text: "Send OTP"),
+                    AuraButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OtpVerificationScreen(
+                            address: inputController.text,
+                          ),
+                        ),
+                      ),
+                      text: "Send OTP",
+                    ),
                     SizedBox(height: 30),
                     Row(
                       spacing: 4,
