@@ -1,3 +1,6 @@
+import 'package:aurabajar/aura_widgets/aura_section_header.dart';
+import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
+import 'package:aurabajar/data/categories.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final int categoryCount = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +80,81 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Container(decoration: BoxDecoration()),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        child: Column(
+          children: [
+            // categories section
+            Column(
+              children: [
+                AuraSectionHeader(
+                  sectionTitle: "Categories",
+                  linkText: "View All",
+                  onTap: () {},
+                ),
+                SizedBox(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categoryCount + 1,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        width: 70,
+                        child: Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: index == categoryCount
+                              ? InkWell(
+                                  splashColor: Colors.transparent,
+                                  onTap: () {},
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 10,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: AppColors.grey
+                                            .withAlpha(50),
+                                        radius: 28,
+                                        child: Icon(
+                                          Icons.more_horiz_rounded,
+                                          size: 30,
+                                        ),
+                                      ),
+                                      AuraSubtitle(subtitle: "More"),
+                                    ],
+                                  ),
+                                )
+                              : Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  spacing: 10,
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: AppColors.grey,
+                                      backgroundImage: NetworkImage(
+                                        homeCategories[index]["image"]!,
+                                      ),
+                                      radius: 28,
+                                    ),
+                                    AuraSubtitle(
+                                      subtitle: homeCategories[index]['name']!,
+                                      maxLines: 1,
+                                      textOverflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
