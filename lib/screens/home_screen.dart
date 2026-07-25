@@ -1,7 +1,10 @@
+import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
+import 'package:aurabajar/data/banners.dart';
 import 'package:aurabajar/data/categories.dart';
 import 'package:aurabajar/theme/app_theme.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -84,6 +87,53 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Column(
           children: [
+            // banner carousel
+            CarouselSlider(
+              items: banners
+                  .map(
+                    (banner) => Stack(
+                      alignment: AlignmentGeometry.bottomLeft,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(banner),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadiusGeometry.circular(12),
+                          ),
+                        ),
+                        Positioned(
+                          left: 10,
+                          bottom: 10,
+                          child: AuraButton(
+                            onPressed: () {},
+                            text: "Shop Now",
+                            width: 140,
+                            height: 40,
+                            outlined: true,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
+              options: CarouselOptions(
+                height: 150,
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 5),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.3,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
             // categories section
             Column(
               children: [
