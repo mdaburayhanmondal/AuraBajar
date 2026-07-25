@@ -1,8 +1,10 @@
 import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
+import 'package:aurabajar/aura_widgets/featured_product_card.dart';
 import 'package:aurabajar/data/banners.dart';
 import 'package:aurabajar/data/categories.dart';
+import 'package:aurabajar/data/products.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -87,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Column(
           children: [
+            SizedBox(height: 4),
             // banner carousel
             CarouselSlider(
               items: banners
@@ -134,6 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
               ),
             ),
+            SizedBox(height: 10),
             // categories section
             Column(
               children: [
@@ -176,28 +180,65 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                                 )
-                              : Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  spacing: 10,
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundColor: AppColors.grey,
-                                      backgroundImage: NetworkImage(
-                                        homeCategories[index]["image"]!,
+                              : InkWell(
+                                  splashColor: Colors.transparent,
+                                  onTap: () {},
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    spacing: 10,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: AppColors.grey,
+                                        backgroundImage: NetworkImage(
+                                          homeCategories[index]["image"]!,
+                                        ),
+                                        radius: 28,
                                       ),
-                                      radius: 28,
-                                    ),
-                                    AuraSubtitle(
-                                      subtitle: homeCategories[index]['name']!,
-                                      maxLines: 1,
-                                      textOverflow: TextOverflow.ellipsis,
-                                    ),
-                                  ],
+                                      AuraSubtitle(
+                                        subtitle:
+                                            homeCategories[index]['name']!,
+                                        maxLines: 1,
+                                        textOverflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                         ),
                       );
                     },
+                  ),
+                ),
+              ],
+            ),
+            // featured products
+            Column(
+              spacing: 4,
+              children: [
+                AuraSectionHeader(
+                  sectionTitle: "Featured Products",
+                  linkText: "View All",
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 150,
+                  child: Center(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: featuredProducts.length,
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: () {},
+                        child: FeaturedProductCard(
+                          image: featuredProducts[index]['image'],
+                          name: featuredProducts[index]['name'],
+                          originalPrice:
+                              featuredProducts[index]['originalPrice'],
+                          sellPrice: featuredProducts[index]['sellPrice'],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
