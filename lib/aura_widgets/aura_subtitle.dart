@@ -7,10 +7,14 @@ class AuraSubtitle extends StatelessWidget {
     required this.subtitle,
     this.alignment,
     this.weight,
+    this.maxLines,
+    this.textOverflow,
   });
   final String subtitle;
   final TextAlign? alignment;
   final FontWeight? weight;
+  final int? maxLines;
+  final TextOverflow? textOverflow;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,8 @@ class AuraSubtitle extends StatelessWidget {
         fontWeight: weight ?? FontWeight.normal,
       ),
       textAlign: alignment ?? TextAlign.start,
+      maxLines: maxLines,
+      overflow: textOverflow,
     );
   }
 }
