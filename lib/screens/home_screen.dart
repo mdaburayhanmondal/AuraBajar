@@ -256,12 +256,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    shrinkWrap: true,
+                  child: GridView.builder(
                     scrollDirection: Axis.horizontal,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 105,
+                      crossAxisCount: 1,
+                    ),
                     itemCount: newArrivals.length,
-                    itemBuilder: (context, index) =>
-                        AuraNewArrivals(product: newArrivals[index]),
+                    itemBuilder: (context, index) => Center(
+                      child: AuraNewArrivals(product: newArrivals[index]),
+                    ),
                   ),
                 ),
               ],
