@@ -270,6 +270,43 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            // best seller products
+            Column(
+              spacing: 4,
+              children: [
+                AuraSectionHeader(
+                  sectionTitle: "Best Seller Products",
+                  linkText: "View All",
+                  onTap: () {},
+                ),
+                SizedBox(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 105,
+                      crossAxisCount: 1,
+                    ),
+                    itemCount: newArrivals.length,
+                    itemBuilder: (context, index) => Center(
+                      child: Container(
+                        height: 100,
+                        width: double.infinity,
+                        margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(bestSellers[index]['image']),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadiusGeometry.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
