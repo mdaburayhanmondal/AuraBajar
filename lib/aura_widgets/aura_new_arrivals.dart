@@ -36,6 +36,7 @@ class _AuraNewArrivalsState extends State<AuraNewArrivals> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(widget.product["image"]),
+                    fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
