@@ -1,4 +1,4 @@
-import 'package:aurabajar/screens/splash_screen.dart';
+import 'package:aurabajar/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'AuraBajar',
       theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

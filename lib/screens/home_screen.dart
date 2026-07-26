@@ -270,6 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 10),
             // best seller products
             Column(
               spacing: 4,
@@ -291,15 +292,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: newArrivals.length,
                     itemBuilder: (context, index) => Center(
                       child: Container(
-                        height: 100,
-                        width: double.infinity,
-                        margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
+                        padding: EdgeInsetsGeometry.all(2),
+                        margin: EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(bestSellers[index]['image']),
-                            fit: BoxFit.cover,
+                          color: AppColors.grey.withAlpha(10),
+                          border: BoxBorder.all(
+                            color: AppColors.grey.withAlpha(40),
                           ),
                           borderRadius: BorderRadiusGeometry.circular(12),
+                        ),
+                        child: Container(
+                          height: 100,
+                          width: double.infinity,
+                          margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(bestSellers[index]['image']),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadiusGeometry.circular(12),
+                          ),
                         ),
                       ),
                     ),
