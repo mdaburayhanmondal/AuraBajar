@@ -31,7 +31,7 @@ class _AuraNewArrivalsState extends State<AuraNewArrivals> {
               flex: 2,
               child: Container(
                 height: 120,
-                width: 90,
+                width: double.infinity,
                 padding: EdgeInsetsGeometry.all(2),
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -45,7 +45,7 @@ class _AuraNewArrivalsState extends State<AuraNewArrivals> {
               flex: 1,
               child: Container(
                 height: 120,
-                width: 90,
+                width: double.infinity,
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
