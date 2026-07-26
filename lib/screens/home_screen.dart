@@ -1,4 +1,5 @@
 import 'package:aurabajar/aura_widgets/aura_button.dart';
+import 'package:aurabajar/aura_widgets/aura_new_arrivals.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/featured_product_card.dart';
@@ -239,6 +240,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            // new arrivals
+            Column(
+              children: [
+                AuraSectionHeader(
+                  sectionTitle: "New Arrivals",
+                  linkText: "View All",
+                  onTap: () {},
+                ),
+                SizedBox(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: newArrivals.length,
+                    itemBuilder: (context, index) =>
+                        AuraNewArrivals(product: newArrivals[index]),
                   ),
                 ),
               ],
