@@ -25,6 +25,33 @@ final List<Map<String, dynamic>> featuredProducts = [
   },
 ];
 
+final List<Map<String, dynamic>> newArrivals = [
+  {
+    "image": "https://picsum.photos/200?random=7",
+    "name": "Travel Backpack 40L",
+    "originalPrice": 89.99,
+    "sellPrice": 64.99,
+  },
+  {
+    "image": "https://picsum.photos/200?random=8",
+    "name": "JBL Flip 6",
+    "originalPrice": 149.99,
+    "sellPrice": 119.99,
+  },
+  {
+    "image": "https://picsum.photos/200?random=9",
+    "name": "iPad Air 11\"",
+    "originalPrice": 699.99,
+    "sellPrice": 649.99,
+  },
+  {
+    "image": "https://picsum.photos/200?random=10",
+    "name": "Logitech MX Master 3S",
+    "originalPrice": 109.99,
+    "sellPrice": 89.99,
+  },
+];
+
 final List<Map<String, dynamic>> allProducts = [
   {
     "image": "https://picsum.photos/200?random=1",
