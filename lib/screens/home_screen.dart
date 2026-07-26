@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {},
                 ),
                 SizedBox(
-                  height: 120,
+                  height: 100,
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return SizedBox(
                         width: 70,
                         child: Padding(
-                          padding: const EdgeInsets.all(6),
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
                           child: index == categoryCount
                               ? InkWell(
                                   splashColor: Colors.transparent,
