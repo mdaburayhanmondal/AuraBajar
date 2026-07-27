@@ -1,3 +1,4 @@
+import 'package:aurabajar/aura_widgets/aura_bottom_nav_bar.dart';
 import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_new_arrivals.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final int categoryCount = 5;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -402,6 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: AuraBottomNavBar(),
     );
   }
 }
