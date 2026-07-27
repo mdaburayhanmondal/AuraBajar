@@ -1,8 +1,8 @@
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class FeaturedProductCard extends StatefulWidget {
-  const FeaturedProductCard({
+class AuraFeaturedProductCard extends StatefulWidget {
+  const AuraFeaturedProductCard({
     super.key,
     required this.image,
     required this.name,
@@ -13,10 +13,11 @@ class FeaturedProductCard extends StatefulWidget {
   final String image, name;
   final double originalPrice, sellPrice;
   @override
-  State<FeaturedProductCard> createState() => _FeaturedProductCardState();
+  State<AuraFeaturedProductCard> createState() =>
+      _AuraFeaturedProductCardState();
 }
 
-class _FeaturedProductCardState extends State<FeaturedProductCard> {
+class _AuraFeaturedProductCardState extends State<AuraFeaturedProductCard> {
   @override
   Widget build(BuildContext context) {
     return Container(

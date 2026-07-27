@@ -3,13 +3,14 @@ import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_new_arrivals.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
-import 'package:aurabajar/aura_widgets/featured_product_card.dart';
 import 'package:aurabajar/data/banners.dart';
 import 'package:aurabajar/data/categories.dart';
 import 'package:aurabajar/data/products.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
+import '../aura_widgets/aura_featured_product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -161,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: featuredProducts.length,
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {},
-                        child: FeaturedProductCard(
+                        child: AuraFeaturedProductCard(
                           image: featuredProducts[index]['image'],
                           name: featuredProducts[index]['name'],
                           originalPrice:
