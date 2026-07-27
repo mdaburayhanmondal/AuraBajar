@@ -37,8 +37,8 @@ class _AuraBottomNavBarState extends State<AuraBottomNavBar> {
           label: "Categories",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search, size: 28),
-          label: "Search",
+          icon: Icon(Icons.inventory, size: 28),
+          label: "All Products",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.event_note, size: 28),
