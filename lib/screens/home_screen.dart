@@ -142,79 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 10),
             // categories section
-            Column(
-              children: [
-                AuraSectionHeader(
-                  sectionTitle: "Categories",
-                  linkText: "View All",
-                  onTap: () {},
-                ),
-                SizedBox(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categoryCount + 1,
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 70,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
-                          child: index == categoryCount
-                              ? InkWell(
-                                  splashColor: Colors.transparent,
-                                  onTap: () {},
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    spacing: 10,
-                                    children: [
-                                      CircleAvatar(
-                                        backgroundColor: AppColors.grey
-                                            .withAlpha(50),
-                                        radius: 28,
-                                        child: Icon(
-                                          Icons.more_horiz_rounded,
-                                          size: 30,
-                                        ),
-                                      ),
-                                      AuraSubtitle(subtitle: "More"),
-                                    ],
-                                  ),
-                                )
-                              : InkWell(
-                                  splashColor: Colors.transparent,
-                                  onTap: () {},
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    spacing: 10,
-                                    children: [
-                                      CircleAvatar(
-                                        backgroundColor: AppColors.grey,
-                                        backgroundImage: NetworkImage(
-                                          homeCategories[index]["image"]!,
-                                        ),
-                                        radius: 28,
-                                      ),
-                                      AuraSubtitle(
-                                        subtitle:
-                                            homeCategories[index]['name']!,
-                                        maxLines: 1,
-                                        textOverflow: TextOverflow.ellipsis,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
+            categoriesSection(context),
             // featured products
             Column(
               spacing: 4,
@@ -274,137 +202,209 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 10),
             // best seller products
-            Column(
-              spacing: 4,
-              children: [
-                AuraSectionHeader(
-                  sectionTitle: "Best Seller Products",
-                  linkText: "View All",
-                  onTap: () {},
-                ),
-                SizedBox(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 105,
-                      crossAxisCount: 1,
-                    ),
-                    itemCount: newArrivals.length,
-                    itemBuilder: (context, index) => Center(
-                      child: Container(
-                        padding: EdgeInsetsGeometry.all(2),
-                        margin: EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.grey.withAlpha(10),
-                          border: BoxBorder.all(
-                            color: AppColors.grey.withAlpha(40),
-                          ),
-                          borderRadius: BorderRadiusGeometry.circular(12),
-                        ),
-                        child: Container(
-                          height: 100,
-                          width: double.infinity,
-                          margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(bestSellers[index]['image']),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadiusGeometry.circular(12),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            bestSellerProducts(context),
             SizedBox(height: 10),
             // top trending products
-            Column(
-              spacing: 4,
-              children: [
-                AuraSectionHeader(
-                  sectionTitle: "Top Trending Products",
-                  linkText: "View All",
-                  onTap: () {},
-                ),
-                SizedBox(
-                  height: 150,
-                  width: MediaQuery.of(context).size.width,
-                  child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 105,
-                      crossAxisCount: 1,
-                    ),
-                    itemCount: newArrivals.length,
-                    itemBuilder: (context, index) => Center(
-                      child: Container(
-                        padding: EdgeInsetsGeometry.all(2),
-                        margin: EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.grey.withAlpha(10),
-                          border: BoxBorder.all(
-                            color: AppColors.grey.withAlpha(40),
-                          ),
-                          borderRadius: BorderRadiusGeometry.circular(12),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 6,
-                          children: [
-                            Container(
-                              height: 100,
-                              width: double.infinity,
-                              margin: EdgeInsetsGeometry.symmetric(
-                                horizontal: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    topTrendingProducts[index]['image'],
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
-                                borderRadius: BorderRadiusGeometry.circular(12),
-                              ),
-                            ),
-                            InkWell(
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: AppColors.primary,
-                                  borderRadius: BorderRadiusGeometry.circular(
-                                    12,
-                                  ),
-                                ),
-                                child: Text(
-                                  "Add To Cart",
-                                  style: TextStyle(
-                                    color: AppColors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            topTrendingProductsSection(context),
           ],
         ),
       ),
       bottomNavigationBar: AuraBottomNavBar(),
+    );
+  }
+
+  // top trending products
+  Column topTrendingProductsSection(BuildContext context) {
+    return Column(
+      spacing: 4,
+      children: [
+        AuraSectionHeader(
+          sectionTitle: "Top Trending Products",
+          linkText: "View All",
+          onTap: () {},
+        ),
+        SizedBox(
+          height: 150,
+          width: MediaQuery.of(context).size.width,
+          child: GridView.builder(
+            scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 105,
+              crossAxisCount: 1,
+            ),
+            itemCount: newArrivals.length,
+            itemBuilder: (context, index) => Center(
+              child: Container(
+                padding: EdgeInsetsGeometry.all(2),
+                margin: EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  color: AppColors.grey.withAlpha(10),
+                  border: BoxBorder.all(color: AppColors.grey.withAlpha(40)),
+                  borderRadius: BorderRadiusGeometry.circular(12),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 6,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: double.infinity,
+                      margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            topTrendingProducts[index]['image'],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadiusGeometry.circular(12),
+                      ),
+                    ),
+                    InkWell(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadiusGeometry.circular(12),
+                        ),
+                        child: Text(
+                          "Add To Cart",
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // best seller products
+  Column bestSellerProducts(BuildContext context) {
+    return Column(
+      spacing: 4,
+      children: [
+        AuraSectionHeader(
+          sectionTitle: "Best Seller Products",
+          linkText: "View All",
+          onTap: () {},
+        ),
+        SizedBox(
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          child: GridView.builder(
+            scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 105,
+              crossAxisCount: 1,
+            ),
+            itemCount: newArrivals.length,
+            itemBuilder: (context, index) => Center(
+              child: Container(
+                padding: EdgeInsetsGeometry.all(2),
+                margin: EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  color: AppColors.grey.withAlpha(10),
+                  border: BoxBorder.all(color: AppColors.grey.withAlpha(40)),
+                  borderRadius: BorderRadiusGeometry.circular(12),
+                ),
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  margin: EdgeInsetsGeometry.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(bestSellers[index]['image']),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadiusGeometry.circular(12),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // categories section
+  Column categoriesSection(BuildContext context) {
+    return Column(
+      children: [
+        AuraSectionHeader(
+          sectionTitle: "Categories",
+          linkText: "View All",
+          onTap: () {},
+        ),
+        SizedBox(
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categoryCount + 1,
+            itemBuilder: (context, index) {
+              return SizedBox(
+                width: 70,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: index == categoryCount
+                      ? InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: AppColors.grey.withAlpha(50),
+                                radius: 28,
+                                child: Icon(Icons.more_horiz_rounded, size: 30),
+                              ),
+                              AuraSubtitle(subtitle: "More"),
+                            ],
+                          ),
+                        )
+                      : InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: AppColors.grey,
+                                backgroundImage: NetworkImage(
+                                  homeCategories[index]["image"]!,
+                                ),
+                                radius: 28,
+                              ),
+                              AuraSubtitle(
+                                subtitle: homeCategories[index]['name']!,
+                                maxLines: 1,
+                                textOverflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
