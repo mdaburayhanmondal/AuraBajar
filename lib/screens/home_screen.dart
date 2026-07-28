@@ -210,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: AuraBottomNavBar(selected: 0),
+      bottomNavigationBar: AuraBottomNavBar(current: 0),
     );
   }
 
