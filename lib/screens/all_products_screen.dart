@@ -1,3 +1,7 @@
+import 'package:aurabajar/aura_widgets/aura_bottom_nav_bar.dart';
+import 'package:aurabajar/aura_widgets/aura_product_card.dart';
+import 'package:aurabajar/aura_widgets/aura_title.dart';
+import 'package:aurabajar/data/products.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +19,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: Text("All Products"),
+        title: AuraTitle(title: "All Products"),
         actions: [
           InkWell(onTap: () {}, child: Icon(Icons.search, size: 28)),
           SizedBox(width: 10),
@@ -92,6 +96,24 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
           ),
         ),
       ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 300,
+          ),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          clipBehavior: Clip.hardEdge,
+          itemCount: allProducts.length,
+          itemBuilder: (context, index) =>
+              AuraProductCard(product: allProducts[index]),
+        ),
+      ),
+      bottomNavigationBar: AuraBottomNavBar(current: 2),
     );
   }
 }
