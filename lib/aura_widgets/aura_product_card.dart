@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:aurabajar/screens/product_details_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,13 @@ class _AuraProductCardState extends State<AuraProductCard> {
           ),
           child: InkWell(
             onTap: () {
-              log("navigate to item details page");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ProductDetailsScreen(product: widget.product),
+                ),
+              );
             },
             child: Column(
               spacing: 8,
