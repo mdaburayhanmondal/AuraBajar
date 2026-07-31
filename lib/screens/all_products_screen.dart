@@ -2,6 +2,10 @@ import 'package:aurabajar/aura_widgets/aura_bottom_nav_bar.dart';
 import 'package:aurabajar/aura_widgets/aura_product_card.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
 import 'package:aurabajar/data/products.dart';
+import 'package:aurabajar/screens/categories_screen.dart';
+import 'package:aurabajar/screens/home_screen.dart';
+import 'package:aurabajar/screens/my_orders_screen.dart';
+import 'package:aurabajar/screens/user_account_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -113,7 +117,40 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
               AuraProductCard(product: allProducts[index]),
         ),
       ),
-      bottomNavigationBar: AuraBottomNavBar(current: 2),
+      bottomNavigationBar: AuraBottomNavBar(
+        currentIndex: 2,
+        onTap: (index) {
+          if (index == 2) return;
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => CategoriesScreen()),
+              );
+              break;
+            case 2:
+              break;
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const MyOrdersScreen()),
+              );
+              break;
+            case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => UserAccountScreen()),
+              );
+              break;
+          }
+        },
+      ),
     );
   }
 }

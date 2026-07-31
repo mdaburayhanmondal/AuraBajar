@@ -1,6 +1,9 @@
 import 'package:aurabajar/aura_widgets/aura_bottom_nav_bar.dart';
 import 'package:aurabajar/aura_widgets/aura_section_header.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
+import 'package:aurabajar/screens/all_products_screen.dart';
+import 'package:aurabajar/screens/categories_screen.dart';
+import 'package:aurabajar/screens/home_screen.dart';
 import 'package:aurabajar/screens/my_orders_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -124,7 +127,40 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: AuraBottomNavBar(current: 4),
+      bottomNavigationBar: AuraBottomNavBar(
+        currentIndex: 4,
+        onTap: (index) {
+          if (index == 4) return;
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => CategoriesScreen()),
+              );
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const AllProductsScreen()),
+              );
+              break;
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const MyOrdersScreen()),
+              );
+              break;
+            case 4:
+              break;
+          }
+        },
+      ),
     );
   }
 
