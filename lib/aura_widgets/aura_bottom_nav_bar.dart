@@ -1,29 +1,22 @@
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class AuraBottomNavBar extends StatefulWidget {
-  const AuraBottomNavBar({super.key, required this.current});
-  final int current;
+class AuraBottomNavBar extends StatelessWidget {
+  const AuraBottomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
-  @override
-  State<AuraBottomNavBar> createState() => _AuraBottomNavBarState();
-}
-
-class _AuraBottomNavBarState extends State<AuraBottomNavBar> {
-  int selected = 0;
-
-  void setSelected(int idx) {
-    setState(() {
-      selected = idx;
-    });
-  }
+  final int currentIndex;
+  final ValueChanged<int> onTap;
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      currentIndex: widget.current,
-      onTap: setSelected,
+      currentIndex: currentIndex,
+      onTap: onTap,
       selectedItemColor: AppColors.primary,
       unselectedItemColor: AppColors.black,
       showSelectedLabels: true,
