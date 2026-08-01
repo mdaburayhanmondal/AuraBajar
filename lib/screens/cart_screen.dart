@@ -227,9 +227,8 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
       bottomNavigationBar: AuraBottomNavBar(
-        currentIndex: 4,
+        currentIndex: null,
         onTap: (index) {
-          if (index == 4) return;
           switch (index) {
             case 0:
               Navigator.pushReplacement(

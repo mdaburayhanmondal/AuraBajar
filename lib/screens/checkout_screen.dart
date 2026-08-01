@@ -1,7 +1,13 @@
+import 'package:aurabajar/aura_widgets/aura_bottom_nav_bar.dart';
 import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_linked_text.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
+import 'package:aurabajar/screens/all_products_screen.dart';
+import 'package:aurabajar/screens/categories_screen.dart';
+import 'package:aurabajar/screens/home_screen.dart';
+import 'package:aurabajar/screens/my_orders_screen.dart';
+import 'package:aurabajar/screens/user_account_screen.dart';
 import 'package:aurabajar/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -344,6 +350,43 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: AuraBottomNavBar(
+        currentIndex: null,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => CategoriesScreen()),
+              );
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const AllProductsScreen()),
+              );
+              break;
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const MyOrdersScreen()),
+              );
+              break;
+            case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => UserAccountScreen()),
+              );
+              break;
+          }
+        },
       ),
     );
   }
