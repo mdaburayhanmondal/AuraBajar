@@ -330,9 +330,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 12),
             Column(
-              spacing: 24,
+              spacing: 16,
               children: [
                 AuraButton(onPressed: () {}, text: "Place Order"),
                 Row(
