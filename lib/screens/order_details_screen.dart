@@ -35,7 +35,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
-                    spacing: 12,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
@@ -62,7 +61,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: 110,
+                        height: 114,
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
@@ -80,7 +79,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                             ),
                             // row on stack
                             Positioned(
-                              top: 20,
+                              top: 22,
                               left: 0,
                               right: 0,
                               child: Row(
