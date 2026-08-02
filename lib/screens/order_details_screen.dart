@@ -19,6 +19,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       appBar: AppBar(
         title: AuraTitle(title: "Order Details"),
         actions: [Icon(Icons.support_agent, size: 28), SizedBox(width: 20)],
+        forceMaterialTransparency: true,
       ),
       body: SafeArea(
         child: Padding(

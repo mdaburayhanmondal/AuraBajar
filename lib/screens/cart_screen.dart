@@ -34,6 +34,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           SizedBox(width: 20),
         ],
+        forceMaterialTransparency: true,
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -46,6 +46,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               Tab(text: 'Cancelled'),
             ],
           ),
+          forceMaterialTransparency: true,
         ),
         body: TabBarView(
           children: [
