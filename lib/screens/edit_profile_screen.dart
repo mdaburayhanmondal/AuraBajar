@@ -1,3 +1,4 @@
+import 'package:aurabajar/aura_widgets/aura_button.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
 import 'package:aurabajar/theme/app_theme.dart';
@@ -276,6 +277,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ],
                   ),
                 ),
+                AuraButton(onPressed: () {}, text: "Save Changes"),
                 SizedBox(height: 30),
               ],
             ),
