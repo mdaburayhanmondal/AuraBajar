@@ -341,7 +341,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 30),
                 // CTAs
                 Row(
                   spacing: 10,
@@ -405,6 +405,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     ),
                   ],
                 ),
+                SizedBox(height: 40),
               ],
             ),
           ),
