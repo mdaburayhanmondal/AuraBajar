@@ -2,6 +2,7 @@ import 'package:aurabajar/aura_widgets/aura_linked_text.dart';
 import 'package:aurabajar/aura_widgets/aura_subtitle.dart';
 import 'package:aurabajar/aura_widgets/aura_title.dart';
 import 'package:aurabajar/theme/app_theme.dart';
+import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -13,6 +14,22 @@ class OrderDetailsScreen extends StatefulWidget {
 
 class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   double progress = 100;
+  int activeStep = 23;
+  // int getActiveStep(String status) {
+  //   switch (status) {
+  //     case 'placed':
+  //       return 0;
+  //     case 'confirmed':
+  //       return 1;
+  //     case 'shipped':
+  //       return 2;
+  //     case 'delivered':
+  //       return 3;
+  //     default:
+  //       return 0;
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,49 +80,92 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                       SizedBox(
                         height: 114,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: LinearProgressIndicator(
-                                value: progress / 100,
-                                minHeight: 4,
-                                backgroundColor: Colors.green.withAlpha(50),
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  Colors.green.shade400,
-                                ),
-                                borderRadius: BorderRadius.circular(100),
+                        child: EasyStepper(
+                          activeStep: activeStep,
+                          lineStyle: LineStyle(
+                            lineLength: 60,
+                            lineThickness: 4,
+                            defaultLineColor: Colors.green.withAlpha(20),
+                            finishedLineColor: Colors.green,
+                          ),
+                          stepShape: StepShape.circle,
+                          stepRadius: 20,
+                          finishedStepBackgroundColor: Colors.green,
+                          activeStepBackgroundColor: Colors.green,
+                          unreachedStepBackgroundColor: Colors.white,
+                          unreachedStepBorderColor: Colors.grey.shade300,
+                          showLoadingAnimation: false,
+                          enableStepTapping: false,
+                          steps: [
+                            EasyStep(
+                              icon: const Icon(Icons.mail_outline),
+                              title: 'Placed',
+                              customTitle: Column(
+                                children: const [
+                                  Text(
+                                    'Placed',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '20th May',
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                ],
                               ),
                             ),
-                            // row on stack
-                            Positioned(
-                              top: 22,
-                              left: 0,
-                              right: 0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  buildProcess(
-                                    "Placed",
-                                    "20th May",
-                                    Icons.mail_outline,
+                            EasyStep(
+                              icon: const Icon(Icons.check_box_outlined),
+                              customTitle: Column(
+                                children: const [
+                                  Text(
+                                    'Confirmed',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                  buildProcess(
-                                    "Confirmed",
-                                    "20th May",
-                                    Icons.check_box_outlined,
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '20th May',
+                                    style: TextStyle(fontSize: 12),
                                   ),
-                                  buildProcess(
-                                    "Shipped",
-                                    "21st May",
-                                    Icons.local_shipping_outlined,
+                                ],
+                              ),
+                            ),
+                            EasyStep(
+                              icon: const Icon(Icons.local_shipping_outlined),
+                              customTitle: Column(
+                                children: const [
+                                  Text(
+                                    'Shipped',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                  buildProcess(
-                                    "Delivered",
-                                    "23rd May",
-                                    Icons.check,
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '21st May',
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            EasyStep(
+                              icon: const Icon(Icons.check),
+                              customTitle: Column(
+                                children: const [
+                                  Text(
+                                    'Delivered',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '23rd May',
+                                    style: TextStyle(fontSize: 12),
                                   ),
                                 ],
                               ),
