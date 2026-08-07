@@ -1,6 +1,6 @@
 # aurabajar
 
-A shopping app
+A shopping app UI design with basic design concepts
 
 ## Getting Started
 
